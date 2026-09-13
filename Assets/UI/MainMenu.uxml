@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Base.uss" />
+    <ui:VisualElement name="screen" class="screen">
+        <ui:VisualElement name="backdrop" class="backdrop" picking-mode="Ignore" />
+        <ui:VisualElement name="column" class="column">
+            <ui:VisualElement name="hero" class="hero">
+                <ui:Label name="eyebrow" class="eyebrow" />
+                <ui:Label name="title-line-1" class="title title--primary" />
+                <ui:Label name="title-line-2" class="title title--accent" />
+                <ui:VisualElement class="rule" />
+                <ui:Label name="tagline" class="tagline" />
+            </ui:VisualElement>
+            <ui:VisualElement name="menu" class="menu">
+                <ui:Button name="play-button" class="btn btn--primary" />
+                <ui:Button name="multiplayer-button" class="btn btn--secondary" />
+                <ui:Button name="scenarios-button" class="btn btn--secondary" />
+                <ui:Button name="profile-button" class="btn btn--secondary" />
+                <ui:Button name="settings-button" class="btn btn--secondary" />
+            </ui:VisualElement>
+            <ui:Label name="version" class="footnote" />
+        </ui:VisualElement>
+        <ui:VisualElement name="coming-soon-modal" class="modal" style="display: none;">
+            <ui:VisualElement name="coming-soon-scrim" class="modal__scrim" />
+            <ui:VisualElement name="coming-soon-card" class="modal__card">
+                <ui:Label name="coming-soon-badge" class="badge" />
+                <ui:Label name="coming-soon-title" class="modal__title" />
+                <ui:Label name="coming-soon-body" class="modal__body" />
+                <ui:Button name="coming-soon-close" class="btn btn--secondary" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

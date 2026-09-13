@@ -1,0 +1,49 @@
+{
+  "locale": "en",
+  "entries": [
+    { "key": "menu.eyebrow", "value": "GLOBAL STRATEGY SIMULATION" },
+    { "key": "menu.title_line1", "value": "NATION" },
+    { "key": "menu.title_line2", "value": "WORLD ORDER" },
+    { "key": "menu.tagline", "value": "LEAD A NATION. CHANGE THE WORLD." },
+    { "key": "menu.version", "value": "BUILD {0}  ·  PHASE 1" },
+    { "key": "menu.play", "value": "PLAY" },
+    { "key": "menu.multiplayer", "value": "MULTIPLAYER" },
+    { "key": "menu.scenarios", "value": "SCENARIOS" },
+    { "key": "menu.profile", "value": "PROFILE" },
+    { "key": "menu.settings", "value": "SETTINGS" },
+
+    { "key": "common.coming_soon", "value": "COMING SOON" },
+    { "key": "common.coming_soon_body", "value": "This section is under construction. The single-player campaign comes first." },
+    { "key": "common.close", "value": "CLOSE" },
+    { "key": "common.menu", "value": "MAIN MENU" },
+
+    { "key": "hud.treasury", "value": "TREASURY" },
+    { "key": "hud.gdp", "value": "GDP" },
+    { "key": "hud.population", "value": "POPULATION" },
+
+    { "key": "debug.advance_day", "value": "ADVANCE DAY" },
+    { "key": "debug.tick_info", "value": "DAY {0}  ·  LAST TICK {1} MS" },
+
+    { "key": "date.long", "value": "{0} {1}, {2}" },
+    { "key": "month.1", "value": "January" },
+    { "key": "month.2", "value": "February" },
+    { "key": "month.3", "value": "March" },
+    { "key": "month.4", "value": "April" },
+    { "key": "month.5", "value": "May" },
+    { "key": "month.6", "value": "June" },
+    { "key": "month.7", "value": "July" },
+    { "key": "month.8", "value": "August" },
+    { "key": "month.9", "value": "September" },
+    { "key": "month.10", "value": "October" },
+    { "key": "month.11", "value": "November" },
+    { "key": "month.12", "value": "December" },
+
+    { "key": "currency.symbol", "value": "$" },
+    { "key": "number.suffix.thousand", "value": "K" },
+    { "key": "number.suffix.million", "value": "M" },
+    { "key": "number.suffix.billion", "value": "B" },
+    { "key": "number.suffix.trillion", "value": "T" },
+
+    { "key": "country.DEU", "value": "GERMANY" }
+  ]
+}

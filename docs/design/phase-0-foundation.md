@@ -582,3 +582,15 @@ test: add edit mode tests for date, engine, signals, localization
 ### Explicitly not in Phase 1
 
 No commands, no time service, no country data, no map, no theme, no save. Those arrive in their own phases.
+
+---
+
+## Phase 1 implementation notes
+
+Decisions taken while building Phase 1 that refine the plan above:
+
+- **Catalog location.** `GameDataCatalog` lives in `Assets/Resources` and is loaded by the bootstrap before the first scene, so pressing Play in any scene works and no scene needs Inspector wiring. It remains the only `Resources` lookup in the project.
+- **Packages deferred.** The Input System, URP, and Newtonsoft JSON packages are not yet in the manifest. Phase 1 has no gestures, no 3D rendering, and no save files, and each of those packages needs editor-side setup that is better done in the phase that uses it (4, 4, and 15 respectively). Localization tables are read with `JsonUtility`, so the file format is an array of key/value entries.
+- **Theme.** UI Toolkit's default runtime theme is imported through `Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss` and referenced by `Assets/UI/NationPanelSettings.asset` (390 by 844 reference, shrink-to-fit so the PC Game view works at any size).
+- **Menu backdrop.** A vector-drawn wireframe globe (`GlobeBackdropElement`, Painter2D) stands in for the textured Earth until Phase 4.
+- **Placeholders to delete in later phases.** `PlaceholderCountries.cs` (Phase 3), the static German flag stripes in `WorldPlaceholder.uxml` (Phase 3), and `WorldPlaceholderController` (Phase 5).

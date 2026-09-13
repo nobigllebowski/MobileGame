@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77497c77d22a001edc6ef8632113596, type: 3}
+  m_Name: GameDataCatalog
+  m_EditorClassIdentifier: 
+  panelSettings: {fileID: 11400000, guid: 6f53c072741704176fe17bb5abb0c133, type: 2}
+  mainMenuLayout: {fileID: 9197481963319205126, guid: f7ecb6966fbf002919c25b1bacd14084, type: 3}
+  worldPlaceholderLayout: {fileID: 9197481963319205126, guid: 8831b9176bd2f65ca866d4d688c55e39, type: 3}
+  localizationTables:
+  - {fileID: 4900000, guid: 9985eeec776886b3718fc4e8b530fb79, type: 3}
