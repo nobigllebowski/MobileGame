@@ -15,9 +15,9 @@ The design foundation and phase roadmap live in [`docs/design/phase-0-foundation
 
 ## Open the project
 
-1. Install **Unity 6 LTS** (any `6000.x` release) through Unity Hub. No extra modules are needed to run in the editor.
+1. Install **Unity 6** through Unity Hub. The project is pinned to `6000.6.0f1`, the version it was last opened with; any nearby `6000.x` release also works. No extra modules are needed to run in the editor.
 2. In Unity Hub choose **Add → Add project from disk** and select this repository folder.
-3. Open the project. If Hub reports that `6000.0.23f1` is not installed, pick your installed 6000.x editor; the upgrade is safe.
+3. Open the project. If Hub reports that `6000.6.0f1` is not installed, pick your installed 6000.x editor; the upgrade is safe.
 4. Wait for the first import to finish (packages resolve and scripts compile).
 
 ## Run it

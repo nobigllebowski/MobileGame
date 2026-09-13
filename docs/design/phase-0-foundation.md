@@ -211,7 +211,7 @@ UI Toolkit. One controller class per screen or panel. Controllers read state thr
 
 | Decision | Choice | Why |
 |---|---|---|
-| Engine version | Unity 6 LTS, pinned exact patch in `ProjectVersion.txt` | Current LTS, URP and UI Toolkit mature |
+| Engine version | Unity 6, pinned in `ProjectVersion.txt` (now `6000.6.0f1`, set by the first editor open) | Current release, UI Toolkit mature |
 | Render pipeline | URP | Mobile performance, Shader Graph for the Earth and map |
 | UI | UI Toolkit runtime | Theming, data-heavy panels, .NET-friendly |
 | Input | Unity Input System, EnhancedTouch | Pinch and drag gestures, official |
@@ -612,3 +612,16 @@ Decisions taken while building Phase 1 that refine the plan above:
 - **Camera and input.** `MapCameraController` damps toward targets and clamps to the world; `MapGestureElement` lives in the UI tree so HUD, sheets and navigation block map input naturally. `MapZoomModel` (engine-free, tested) owns bands, limits and label rules; Natural Earth's `MIN_LABEL` and `LABELRANK` drive label density.
 - **Globe.** The menu Earth is a UV sphere textured by rasterizing the same catalog (land mask, coast softness, capital lights) at startup; quality tiers add terrain shading and atmosphere (medium) and clouds plus night lights (high). No external imagery.
 - **Placeholders retired.** `WorldMapView`, `MapData` and `continents.json` were removed; the silhouette test became a catalog test. `GlobeBackdropElement` remains as the fallback when no catalog is loaded.
+
+### Editor-confirmed details
+
+The project owner opened the project in **Unity 6000.6.0f1**, which generated the remaining `ProjectSettings`
+assets and corrected two things that had been authored by hand:
+
+- `com.unity.modules.vr` no longer exists in Unity 6.6 and was removed from the package manifest.
+- The runtime theme's `.tss` meta uses ScriptedImporter id `12388` with `disableValidation` and
+  `unsupportedSelectorAction` fields. The asset generator now emits exactly that, so regenerating metadata no
+  longer reverts the editor's own import settings.
+
+The rendering stack is the **built-in pipeline**, not URP: Phase 1 deferred the URP package, and the map and
+globe shaders are built-in `CGPROGRAM` shaders accordingly. Moving to URP would mean porting those four shaders.
