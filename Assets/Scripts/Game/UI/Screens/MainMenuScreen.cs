@@ -9,14 +9,25 @@ namespace Nation.Game.UI.Screens
     /// <summary>Cinematic entry screen. PLAY opens country selection; other sections are announced as upcoming.</summary>
     public sealed class MainMenuScreen : UIScreen
     {
-        public MainMenuScreen(GameContext context) : base(context, "main-menu")
+        private readonly bool _hasGlobe;
+
+        public MainMenuScreen(GameContext context, bool hasGlobe = false) : base(context, "main-menu")
         {
+            _hasGlobe = hasGlobe;
         }
 
         protected override void Build(VisualElement root)
         {
             root.AddToClassList("menu");
-            root.Add(new GlobeBackdropElement());
+            if (_hasGlobe)
+            {
+                // The 3D Earth renders in the scene behind a transparent screen; only the vignette is drawn here.
+                root.AddToClassList("menu--globe");
+            }
+            else
+            {
+                root.Add(new GlobeBackdropElement());
+            }
 
             var column = new VisualElement { name = "column" };
             column.AddToClassList("column");

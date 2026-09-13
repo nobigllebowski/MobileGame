@@ -1,0 +1,33 @@
+Natural Earth import report
+Generated: deterministic build from Tools/MapSource (see README)
+Countries: 242
+Source vertices: 99432
+Far: 3583 vertices, 3071 triangles
+Mid: 6397 vertices, 5815 triangles
+Near: 25506 vertices, 24402 triangles
+Catalog size: 729920 bytes
+Build time: 842 ms
+
+Map validation: 0 error(s), 16 warning(s)
+  Warning missing-capital [ABW]: No admin-0 capital found in populated places.
+  Warning missing-capital [ALA]: No admin-0 capital found in populated places.
+  Info non-iso-code [ATC]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning capital-outside [BHS]: Capital point lies outside the country's polygons.
+  Warning missing-capital [CUW]: No admin-0 capital found in populated places.
+  Info non-iso-code [CYN]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning missing-capital [CYN]: No admin-0 capital found in populated places.
+  Warning missing-capital [GGY]: No admin-0 capital found in populated places.
+  Warning missing-capital [GRL]: No admin-0 capital found in populated places.
+  Warning missing-capital [HKG]: No admin-0 capital found in populated places.
+  Warning missing-capital [IMN]: No admin-0 capital found in populated places.
+  Info non-iso-code [IOA]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning missing-capital [JEY]: No admin-0 capital found in populated places.
+  Info non-iso-code [KAS]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning capital-outside [KIR]: Capital point lies outside the country's polygons.
+  Info non-iso-code [KOS]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning missing-capital [MAC]: No admin-0 capital found in populated places.
+  Warning capital-outside [MDV]: Capital point lies outside the country's polygons.
+  Warning missing-capital [NRU]: No admin-0 capital found in populated places.
+  Info non-iso-code [SOL]: Territory uses a Natural Earth code instead of an ISO 3166-1 code.
+  Warning missing-capital [SXM]: No admin-0 capital found in populated places.
+  Warning capital-outside [VUT]: Capital point lies outside the country's polygons.

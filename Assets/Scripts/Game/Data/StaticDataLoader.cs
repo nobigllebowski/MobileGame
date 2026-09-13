@@ -4,7 +4,6 @@ using Nation.Core.Buildings;
 using Nation.Core.Countries;
 using Nation.Core.Data;
 using Nation.Core.Localization;
-using Nation.Core.Map;
 using UnityEngine;
 
 namespace Nation.Game.Data
@@ -50,24 +49,6 @@ namespace Nation.Game.Data
             {
                 Debug.LogError("[Data] Building data failed to load: " + exception.Message);
                 return new List<BuildingDefinition>();
-            }
-        }
-
-        public static IMapDataProvider LoadMap(TextAsset asset)
-        {
-            try
-            {
-                if (asset == null)
-                {
-                    throw new InvalidOperationException("no map asset assigned in the Game Data Catalog");
-                }
-
-                return MapData.Parse(asset.text);
-            }
-            catch (Exception exception)
-            {
-                Debug.LogError("[Data] Map data failed to load: " + exception.Message);
-                return new MapData(new List<LandmassOutline>());
             }
         }
 

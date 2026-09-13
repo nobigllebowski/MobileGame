@@ -1,4 +1,5 @@
 using Nation.Game.Config;
+using Nation.Game.Performance;
 using Nation.Game.Time;
 using Nation.Game.UI.Core;
 using UnityEngine;
@@ -56,6 +57,7 @@ namespace Nation.Game.Bootstrap
             Context.AttachUI(ui);
 
             gameObject.AddComponent<GameRunner>();
+            gameObject.AddComponent<PerformanceMonitor>();
 
             Debug.Log("[Bootstrap] Game context ready. Locale: " + Context.Localization.CurrentLocale + ", countries: " + Context.Countries.All.Count + ".");
         }

@@ -1,0 +1,19 @@
+{
+    "name": "Nation.Editor",
+    "rootNamespace": "Nation.Editor",
+    "references": [
+        "Nation.Core",
+        "Nation.Game"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

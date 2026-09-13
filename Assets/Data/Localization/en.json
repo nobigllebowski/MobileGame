@@ -11,11 +11,9 @@
     "menu.scenarios": "SCENARIOS",
     "menu.profile": "PROFILE",
     "menu.settings": "SETTINGS",
-
     "common.coming_soon_body": "This section is in development. The single-player campaign comes first.",
     "common.close": "CLOSE",
     "common.cancel": "CANCEL",
-
     "select.title": "CHOOSE YOUR NATION",
     "select.subtitle": "Select a country and lead it into a new future.",
     "select.search_placeholder": "Search by name, code or capital",
@@ -30,11 +28,9 @@
     "select.count": "{0} NATIONS AVAILABLE",
     "select.empty.title": "No nations match",
     "select.empty.body": "Try a different search or clear the active filters.",
-
     "toast.country_selected": "{0} selected",
     "toast.now_leading": "You are now leading {0}.",
     "toast.feature_unavailable": "This feature arrives in a later update.",
-
     "preview.eyebrow": "NATION BRIEFING",
     "preview.difficulty": "DIFFICULTY",
     "preview.strengths": "STRENGTHS",
@@ -42,7 +38,6 @@
     "preview.resources": "SELF-SUFFICIENCY",
     "preview.resources_hint": "Domestic production as a share of demand. Below 100% means imports are required.",
     "preview.start": "START LEADERSHIP",
-
     "stat.capital": "CAPITAL",
     "stat.population": "POPULATION",
     "stat.gdp": "GDP",
@@ -56,7 +51,6 @@
     "stat.energy_self_sufficiency": "self-sufficient",
     "stat.resources": "RESOURCES",
     "stat.government": "GOVERNMENT",
-
     "resource.energy": "Energy",
     "resource.oil": "Oil",
     "resource.gas": "Gas",
@@ -66,24 +60,20 @@
     "resource.gas.short": "Gas",
     "resource.food.short": "Food",
     "resource.iron.short": "Iron",
-
     "nav.nation": "NATION",
     "nav.economy": "ECONOMY",
     "nav.build": "BUILD",
     "nav.world": "WORLD",
     "nav.power": "POWER",
-
     "dialog.leave.title": "LEAVE TO MAIN MENU",
     "dialog.leave.body": "Progress in this session is not saved yet. Return to the main menu?",
     "dialog.leave.confirm": "MAIN MENU",
-
     "nation.primary": "PRIMARY METRICS",
     "nation.secondary": "NATIONAL PROFILE",
     "nation.status": "NATIONAL STATUS",
     "nation.alerts": "ALERTS",
     "nation.alerts.none.title": "All clear",
     "nation.alerts.none.body": "No pressing issues detected in the current reports.",
-
     "status.topic.economy": "Economy",
     "status.topic.energy": "Energy",
     "status.topic.population": "Population",
@@ -98,7 +88,6 @@
     "status.unrest": "UNREST",
     "status.neutral": "NEUTRAL",
     "status.isolated": "ISOLATED",
-
     "alert.energy_dependency.title": "Energy dependency detected",
     "alert.energy_dependency.body": "Domestic production does not cover demand. Imports keep the lights on; prices and partners matter.",
     "alert.stability_low.title": "Stability under pressure",
@@ -113,7 +102,6 @@
     "alert.trade_opportunities.body": "High global standing makes partners receptive to new agreements.",
     "alert.export_surplus.title": "Export surplus available",
     "alert.export_surplus.body": "Resource production exceeds domestic demand. Exports could fund the budget.",
-
     "economy.title": "ECONOMY",
     "economy.subtitle": "National accounts and fiscal position",
     "economy.growth": "GDP GROWTH",
@@ -129,11 +117,9 @@
     "economy.growth_negative": "CONTRACTING",
     "economy.surplus": "SURPLUS",
     "economy.deficit": "DEFICIT",
-
     "tax.income": "Income tax",
     "tax.business": "Business tax",
     "tax.import": "Import tariffs",
-
     "build.title": "BUILD",
     "build.subtitle": "Strategic projects for the nation",
     "build.category.all": "ALL",
@@ -152,7 +138,6 @@
     "build.construct": "CONSTRUCT",
     "build.empty.title": "No projects here yet",
     "build.empty.body": "This category will fill up as the construction system grows.",
-
     "building.solar_plant": "SOLAR POWER PLANT",
     "building.solar_plant.description": "Utility-scale photovoltaic array with grid storage.",
     "building.wind_farm": "OFFSHORE WIND FARM",
@@ -181,25 +166,21 @@
     "building.irrigation_network.description": "Canals and reservoirs stabilizing harvests in dry regions.",
     "building.agri_tech_center": "AGRI-TECH CENTER",
     "building.agri_tech_center.description": "Research hub raising yields through precision farming.",
-
     "unit.megawatt": "MW",
     "unit.percent": "%",
     "unit.homes": "homes",
     "unit.area_km2": "{0} km²",
     "unit.days": "{0} DAYS",
-
     "speed.paused": "PAUSED",
     "speed.slow": "SLOW",
     "speed.normal": "NORMAL",
     "speed.fast": "FAST",
     "speed.veryfast": "VERY FAST",
-
     "world.your_nation": "YOUR NATION",
     "world.open_nation": "OPEN NATION",
     "world.diplomacy": "DIPLOMACY",
     "world.trade": "TRADE",
     "world.details": "PROFILE",
-
     "power.title": "POWER",
     "power.subtitle": "Strategic standing in the world",
     "power.national": "NATIONAL POWER",
@@ -215,7 +196,6 @@
     "power.rank_military": "Military",
     "power.rank_influence": "Influence",
     "power.rank_format": "#{0} of {1}",
-
     "region.europe": "Europe",
     "region.north_america": "North America",
     "region.south_america": "South America",
@@ -223,7 +203,6 @@
     "region.middle_east": "Middle East",
     "region.africa": "Africa",
     "region.oceania": "Oceania",
-
     "government.federal_parliamentary_republic": "Federal Parliamentary Republic",
     "government.federal_presidential_republic": "Federal Presidential Republic",
     "government.presidential_republic": "Presidential Republic",
@@ -231,7 +210,6 @@
     "government.parliamentary_republic": "Parliamentary Republic",
     "government.constitutional_monarchy": "Constitutional Monarchy",
     "government.socialist_republic": "Socialist Republic",
-
     "tier.population.small": "Small",
     "tier.population.medium": "Medium",
     "tier.population.large": "Large",
@@ -247,12 +225,10 @@
     "tier.influence.low": "Low",
     "tier.influence.medium": "Medium",
     "tier.influence.high": "High",
-
     "difficulty.easy": "EASY",
     "difficulty.normal": "NORMAL",
     "difficulty.hard": "HARD",
     "difficulty.very_hard": "VERY HARD",
-
     "country.DEU": "GERMANY",
     "country.USA": "UNITED STATES",
     "country.CHN": "CHINA",
@@ -263,7 +239,6 @@
     "country.IND": "INDIA",
     "country.BRA": "BRAZIL",
     "country.TUR": "TÜRKIYE",
-
     "capital.DEU": "Berlin",
     "capital.USA": "Washington, D.C.",
     "capital.CHN": "Beijing",
@@ -274,7 +249,6 @@
     "capital.IND": "New Delhi",
     "capital.BRA": "Brasília",
     "capital.TUR": "Ankara",
-
     "trait.industrial_economy": "Strong industrial economy",
     "trait.high_technology": "High technology level",
     "trait.strategic_europe": "Strategic European position",
@@ -318,7 +292,6 @@
     "trait.manufacturing_base": "Manufacturing base",
     "trait.inflation_pressure": "Inflation pressure",
     "trait.currency_volatility": "Currency volatility",
-
     "date.long": "{0} {1}, {2}",
     "date.short": "{0} {1} {2}",
     "month.1": "January",
@@ -345,11 +318,60 @@
     "month.short.10": "Oct",
     "month.short.11": "Nov",
     "month.short.12": "Dec",
-
     "currency.symbol": "$",
     "number.suffix.thousand": "K",
     "number.suffix.million": "M",
     "number.suffix.billion": "B",
-    "number.suffix.trillion": "T"
+    "number.suffix.trillion": "T",
+    "layer.political": "POLITICAL",
+    "layer.political.description": "Nations by control. Your nation in accent blue, simulated nations in steel, territories in slate.",
+    "layer.political.legend_low": "Territory",
+    "layer.political.legend_high": "Your nation",
+    "layer.economy": "ECONOMY",
+    "layer.economy.description": "Annual output. Brighter means a larger economy.",
+    "layer.economy.legend_low": "$1B",
+    "layer.economy.legend_high": "$30T",
+    "layer.population": "POPULATION",
+    "layer.population.description": "Inhabitants. Brighter means more people.",
+    "layer.population.legend_low": "100K",
+    "layer.population.legend_high": "1.5B",
+    "layer.resources": "RESOURCES",
+    "layer.resources.description": "Strategic resource balance. Arrives with the trade update.",
+    "layer.diplomacy": "DIPLOMACY",
+    "layer.diplomacy.description": "Relationships with your nation. Arrives with the diplomacy update.",
+    "layer.stability": "STABILITY",
+    "layer.stability.description": "Political stability of simulated nations.",
+    "layer.stability.legend_low": "Unstable",
+    "layer.stability.legend_high": "Stable",
+    "layer.influence": "INFLUENCE",
+    "layer.influence.description": "Global influence of simulated nations.",
+    "layer.influence.legend_low": "Low",
+    "layer.influence.legend_high": "High",
+    "layer.unavailable": "No data",
+    "layer.availability.available": "LIVE",
+    "layer.availability.partial": "SIMULATED NATIONS",
+    "layer.availability.unavailable": "COMING SOON",
+    "world.layers": "LAYERS",
+    "world.layers_title": "MAP LAYERS",
+    "world.home": "HOME",
+    "world.view_country": "VIEW COUNTRY",
+    "world.compare": "COMPARE",
+    "world.relationship": "RELATIONSHIP",
+    "world.coming_soon": "FULL SIMULATION COMING SOON",
+    "world.coming_soon_body": "This nation appears on the map with real geography and estimates. Its economy, politics and diplomacy join the simulation in a later update.",
+    "world.estimate": "estimate",
+    "world.sovereign": "SOVEREIGN",
+    "world.territory": "TERRITORY",
+    "world.continent": "CONTINENT",
+    "world.selection_hint": "Tap a nation to select it. Pinch to zoom, drag to pan.",
+    "relationship.own": "YOUR NATION",
+    "relationship.neutral": "NEUTRAL",
+    "relationship.pending": "Relations develop with the diplomacy update.",
+    "credit.natural_earth": "Map data: Natural Earth (public domain)",
+    "type.sovereign_country": "Sovereign state",
+    "type.country": "Country",
+    "type.dependency": "Dependency",
+    "type.disputed": "Disputed territory",
+    "type.indeterminate": "Territory"
   }
 }

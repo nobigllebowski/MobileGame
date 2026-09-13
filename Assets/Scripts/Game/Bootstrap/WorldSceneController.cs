@@ -1,3 +1,4 @@
+using Nation.Game.Map;
 using Nation.Game.UI.Screens;
 using UnityEngine;
 
@@ -30,7 +31,17 @@ namespace Nation.Game.Bootstrap
                 context.StartNewGame(playable[0].Id);
             }
 
-            context.UI.Screens.ReplaceAll(new GameShellScreen(context));
+            MapWorldBuilder.Result map = null;
+            if (context.Map.IsLoaded)
+            {
+                map = MapWorldBuilder.Build(context);
+            }
+            else
+            {
+                Debug.LogError("[World] Map catalog is empty; the world view will show no geography. Run Nation > Map > Import Natural Earth.");
+            }
+
+            context.UI.Screens.ReplaceAll(new GameShellScreen(context, map));
         }
     }
 }

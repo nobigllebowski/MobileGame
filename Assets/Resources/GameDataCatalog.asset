@@ -16,7 +16,15 @@ MonoBehaviour:
   theme: {fileID: 7433441132597879392, guid: 106caba8d55eed778c19e4fea53f496f, type: 3}
   countries: {fileID: 4900000, guid: fc59cb011f28d2e4de193f6f5330d5bd, type: 3}
   buildings: {fileID: 4900000, guid: e01d46deb6350e9e67e28951d5164495, type: 3}
-  mapData: {fileID: 4900000, guid: 29c0eb79591b3a592472bf7de1a5dd9f, type: 3}
+  mapCatalog: {fileID: 4900000, guid: 762464ec3450676a985c5db3cc5fa782, type: 3}
   localizationTables:
+  - {fileID: 4900000, guid: b4436f4b4df864b791a7e9a3becb682f, type: 3}
+  - {fileID: 4900000, guid: 20d5d12616a1106896cf0679aa64f50d, type: 3}
+  - {fileID: 4900000, guid: 9703a7dc12501abcbf726fbe319a41ec, type: 3}
+  - {fileID: 4900000, guid: 3048fedc337c6c37a3f15188ea8319f8, type: 3}
+  - {fileID: 4900000, guid: 84f0834bc4080f62b0eedb9665777cb4, type: 3}
+  - {fileID: 4900000, guid: 0ca335566d214c9d83e410441ae4d197, type: 3}
+  - {fileID: 4900000, guid: 20f008bfe2de9b6e712876e3f36ab91d, type: 3}
+  - {fileID: 4900000, guid: 3584b2ec8c2cd41e753192760835fe1c, type: 3}
   - {fileID: 4900000, guid: 9985eeec776886b3718fc4e8b530fb79, type: 3}
   - {fileID: 4900000, guid: 7919500eb746354c2ad662173a134e1e, type: 3}

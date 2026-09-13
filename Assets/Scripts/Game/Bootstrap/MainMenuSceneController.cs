@@ -1,3 +1,4 @@
+using Nation.Game.Globe;
 using Nation.Game.UI.Screens;
 using UnityEngine;
 
@@ -15,7 +16,16 @@ namespace Nation.Game.Bootstrap
                 return;
             }
 
-            context.UI.Screens.ReplaceAll(new MainMenuScreen(context));
+            var hasGlobe = false;
+            if (context.Map.IsLoaded)
+            {
+                var tier = GlobeQuality.Resolve();
+                EarthGlobe.Build(context.Map.Catalog, tier, Camera.main);
+                hasGlobe = true;
+                Debug.Log("[Menu] Earth globe built at quality tier " + tier + ".");
+            }
+
+            context.UI.Screens.ReplaceAll(new MainMenuScreen(context, hasGlobe));
         }
     }
 }

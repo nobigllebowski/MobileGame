@@ -30,6 +30,17 @@ namespace Nation.Tests
             return File.ReadAllText(path);
         }
 
+        public static byte[] ReadBytes(params string[] segments)
+        {
+            var path = Path.Combine(Root, "Assets", "Data");
+            foreach (var segment in segments)
+            {
+                path = Path.Combine(path, segment);
+            }
+
+            return File.ReadAllBytes(path);
+        }
+
         public static string Countries => Read("Countries", "countries.json");
         public static string Buildings => Read("Buildings", "buildings.json");
         public static string Map => Read("Map", "continents.json");

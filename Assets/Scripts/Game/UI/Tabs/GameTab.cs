@@ -61,6 +61,11 @@ namespace Nation.Game.UI.Tabs
         {
         }
 
+        /// <summary>The shell is being torn down (scene change). Release scene references here.</summary>
+        public virtual void OnDestroyed()
+        {
+        }
+
         protected ScrollView Scroll(string extraClass)
         {
             var scroll = new ScrollView(ScrollViewMode.Vertical);

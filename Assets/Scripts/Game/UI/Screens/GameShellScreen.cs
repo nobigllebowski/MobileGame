@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Nation.Core.Signals;
 using Nation.Game.Bootstrap;
+using Nation.Game.Map;
 using Nation.Game.Scenes;
 using Nation.Game.UI.Components;
 using Nation.Game.UI.Core;
@@ -25,9 +26,11 @@ namespace Nation.Game.UI.Screens
         private IDisposable _tickSubscription;
         private IDisposable _speedSubscription;
         private bool _welcomed;
+        private readonly MapWorldBuilder.Result _map;
 
-        public GameShellScreen(GameContext context) : base(context, "game-shell")
+        public GameShellScreen(GameContext context, MapWorldBuilder.Result map = null) : base(context, "game-shell")
         {
+            _map = map;
         }
 
         protected override void Build(VisualElement root)
@@ -45,7 +48,7 @@ namespace Nation.Game.UI.Screens
             _tabs[GameTabId.Nation] = new NationTab(Context, this);
             _tabs[GameTabId.Economy] = new EconomyTab(Context, this);
             _tabs[GameTabId.Build] = new BuildTab(Context, this);
-            _tabs[GameTabId.World] = new WorldTab(Context, this);
+            _tabs[GameTabId.World] = new WorldTab(Context, this, _map);
             _tabs[GameTabId.Power] = new PowerTab(Context, this);
 
             foreach (var tab in _tabs.Values)
@@ -122,6 +125,14 @@ namespace Nation.Game.UI.Screens
             Context.EndGame();
             UI.SetLoading(true);
             Context.Scenes.GoTo(SceneNames.MainMenu);
+        }
+
+        public override void OnDestroyed()
+        {
+            foreach (var tab in _tabs.Values)
+            {
+                tab.OnDestroyed();
+            }
         }
 
         private void OnTick(TickCompletedSignal signal)

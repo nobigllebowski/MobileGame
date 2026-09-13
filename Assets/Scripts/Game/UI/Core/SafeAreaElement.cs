@@ -38,7 +38,7 @@ namespace Nation.Game.UI.Core
                 return;
             }
 
-            var scale = PanelUnitsPerPixel();
+            var scale = PanelCoordinates.UnitsPerPixel(panel);
             var left = safe.xMin * scale;
             var right = (screenWidth - safe.xMax) * scale;
             var top = (screenHeight - safe.yMax) * scale;
@@ -58,12 +58,5 @@ namespace Nation.Game.UI.Core
             style.paddingBottom = bottom;
         }
 
-        private float PanelUnitsPerPixel()
-        {
-            var origin = RuntimePanelUtils.ScreenToPanel(panel, Vector2.zero);
-            var probe = RuntimePanelUtils.ScreenToPanel(panel, new Vector2(100f, 0f));
-            var perPixel = Mathf.Abs(probe.x - origin.x) / 100f;
-            return perPixel > 0.0001f ? perPixel : 1f;
-        }
     }
 }

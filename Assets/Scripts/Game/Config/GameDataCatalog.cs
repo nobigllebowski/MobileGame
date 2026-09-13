@@ -20,7 +20,8 @@ namespace Nation.Game.Config
         [Header("Static data")]
         [SerializeField] private TextAsset countries;
         [SerializeField] private TextAsset buildings;
-        [SerializeField] private TextAsset mapData;
+        [Tooltip("Binary map catalog produced by Nation > Map > Import Natural Earth (world.map.bytes).")]
+        [SerializeField] private TextAsset mapCatalog;
 
         [Header("Localization")]
         [Tooltip("One JSON table per locale. The first table's locale is the default.")]
@@ -30,7 +31,7 @@ namespace Nation.Game.Config
         public StyleSheet Theme => theme;
         public TextAsset Countries => countries;
         public TextAsset Buildings => buildings;
-        public TextAsset MapData => mapData;
+        public TextAsset MapCatalog => mapCatalog;
         public TextAsset[] LocalizationTables => localizationTables;
     }
 }

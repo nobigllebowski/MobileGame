@@ -17,6 +17,7 @@ namespace Nation.Game.UI.Core
         public const int ReferenceHeight = 844;
 
         private readonly VisualElement _loading;
+        private Label _debugOverlay;
 
         public VisualElement Root { get; }
         public SafeAreaElement SafeArea { get; }
@@ -75,6 +76,20 @@ namespace Nation.Game.UI.Core
         public void SetLoading(bool visible)
         {
             _loading.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+        }
+
+        /// <summary>Shows developer statistics in a corner; pass null to hide.</summary>
+        public void SetDebugOverlay(string text)
+        {
+            if (_debugOverlay == null)
+            {
+                _debugOverlay = new Label { name = "debug-overlay", pickingMode = PickingMode.Ignore };
+                _debugOverlay.AddToClassList("debug-overlay");
+                Root.Add(_debugOverlay);
+            }
+
+            _debugOverlay.text = text ?? string.Empty;
+            _debugOverlay.style.display = string.IsNullOrEmpty(text) ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         private VisualElement Layer(string layerName)

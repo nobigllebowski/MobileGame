@@ -1,5 +1,4 @@
 using Nation.Core.Buildings;
-using Nation.Core.Map;
 using NUnit.Framework;
 
 namespace Nation.Tests
@@ -24,30 +23,34 @@ namespace Nation.Tests
         }
 
         [Test]
-        public void Map_Loads_Landmasses_With_Valid_Coordinates()
+        public void Map_Catalog_Loads_Landmasses_With_Valid_Coordinates()
         {
-            var map = MapData.Parse(TestData.Map);
+            var catalog = Nation.Core.Map.MapCatalogSerializer.Read(TestData.ReadBytes("Map", "world.map.bytes"));
 
-            Assert.IsTrue(map.Landmasses.Count >= 6);
-            foreach (var landmass in map.Landmasses)
+            Assert.IsTrue(catalog.Countries.Count >= 200);
+            foreach (var country in catalog.Countries)
             {
-                Assert.IsTrue(landmass.Points.Count >= 3, landmass.Id);
-                foreach (var point in landmass.Points)
+                var lod = country.Lod(Nation.Core.Map.MapZoomBand.Far);
+                Assert.IsTrue(lod.RingCount >= 1, country.Id);
+                for (var v = 0; v < lod.VertexCount; v++)
                 {
-                    Assert.IsTrue(point.Latitude >= -90 && point.Latitude <= 90, landmass.Id);
-                    Assert.IsTrue(point.Longitude >= -180 && point.Longitude <= 180, landmass.Id);
+                    var point = lod.Vertex(v);
+                    Assert.IsTrue(point.X >= -2.75f && point.X <= 2.75f, country.Id);
+                    Assert.IsTrue(point.Y >= -1.35f && point.Y <= 1.35f, country.Id);
                 }
             }
         }
 
         [Test]
-        public void Projection_Maps_Corners_To_Unit_Square()
+        public void Projection_Is_Symmetric_About_The_Origin()
         {
-            Assert.AreEqual(0.0, MapProjection.X(-180));
-            Assert.AreEqual(1.0, MapProjection.X(180));
-            Assert.AreEqual(0.5, MapProjection.X(0));
-            Assert.AreEqual(0.0, MapProjection.Y(90));
-            Assert.AreEqual(1.0, MapProjection.Y(-90));
+            Nation.Core.Map.Geometry.EqualEarthProjection.Project(-180, 0, out var minX, out _);
+            Nation.Core.Map.Geometry.EqualEarthProjection.Project(180, 0, out var maxX, out _);
+            Nation.Core.Map.Geometry.EqualEarthProjection.Project(0, -90, out _, out var minY);
+            Nation.Core.Map.Geometry.EqualEarthProjection.Project(0, 90, out _, out var maxY);
+
+            Assert.AreEqual(-maxX, minX);
+            Assert.AreEqual(-maxY, minY);
         }
     }
 }

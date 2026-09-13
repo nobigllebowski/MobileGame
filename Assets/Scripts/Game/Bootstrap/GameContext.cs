@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Nation.Core.Buildings;
 using Nation.Core.Countries;
 using Nation.Core.Localization;
-using Nation.Core.Map;
 using Nation.Core.Session;
 using Nation.Core.Signals;
 using Nation.Game.Config;
 using Nation.Game.Data;
+using Nation.Game.Map;
 using Nation.Game.Scenes;
 using Nation.Game.UI.Core;
 using UnityEngine;
@@ -29,7 +29,7 @@ namespace Nation.Game.Bootstrap
         public SceneNavigator Scenes { get; }
         public ICountryDataProvider Countries { get; }
         public IReadOnlyList<BuildingDefinition> Buildings { get; }
-        public IMapDataProvider MapData { get; }
+        public MapService Map { get; }
         public UIService UI { get; private set; }
 
         /// <summary>The running game, or null while in the menu with no game started.</summary>
@@ -49,7 +49,7 @@ namespace Nation.Game.Bootstrap
             Scenes = new SceneNavigator();
             Countries = StaticDataLoader.LoadCountries(catalog.Countries);
             Buildings = StaticDataLoader.LoadBuildings(catalog.Buildings);
-            MapData = StaticDataLoader.LoadMap(catalog.MapData);
+            Map = new MapService(catalog.MapCatalog, () => Session != null ? Session.World : null, Signals);
         }
 
         internal static GameContext Create(GameDataCatalog catalog)
