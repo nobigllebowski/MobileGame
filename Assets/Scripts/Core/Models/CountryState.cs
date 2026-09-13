@@ -2,8 +2,7 @@ namespace Nation.Core.Models
 {
     /// <summary>
     /// Dynamic state of one country. Everything here changes during play and is saved.
-    /// Static facts about a country (name, capital, borders) live in definitions, not here.
-    /// Phase 1 holds the six primary metrics; later phases add sub-objects (economy, budget, projects).
+    /// Static facts about a country (name, capital, borders, flag) live in CountryDefinition.
     /// </summary>
     public sealed class CountryState
     {
@@ -22,7 +21,16 @@ namespace Nation.Core.Models
         public float Happiness { get; set; }
 
         /// <summary>0 to 100.</summary>
+        public float Stability { get; set; }
+
+        /// <summary>0 to 100.</summary>
         public float Influence { get; set; }
+
+        /// <summary>0 to 100.</summary>
+        public float Technology { get; set; }
+
+        /// <summary>0 to 100. Abstract strategic military capability.</summary>
+        public float MilitaryStrength { get; set; }
 
         /// <summary>Abstract energy units per day.</summary>
         public double EnergyProduction { get; set; }
@@ -30,7 +38,18 @@ namespace Nation.Core.Models
         /// <summary>Abstract energy units per day.</summary>
         public double EnergyConsumption { get; set; }
 
+        public ResourceBalance Oil { get; set; }
+        public ResourceBalance Gas { get; set; }
+        public ResourceBalance Food { get; set; }
+        public ResourceBalance Iron { get; set; }
+
+        public TaxPolicy Taxes { get; set; }
+
         public double EnergyBalance => EnergyProduction - EnergyConsumption;
+
+        public double EnergySelfSufficiency => EnergyConsumption <= 0 ? 1.0 : EnergyProduction / EnergyConsumption;
+
+        public double GdpPerCapita => Population <= 0 ? 0 : Gdp / Population;
 
         public CountryState()
         {

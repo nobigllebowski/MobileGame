@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "note": "Placeholder project catalogue for the Build screen. Costs in US dollars, durations in simulation days, maintenance per year. The construction phase adds requirements and applies effects.",
+  "buildings": [
+    { "id": "solar_plant", "category": "energy", "cost": 1.2e9, "durationDays": 120, "maintenance": 4.0e7, "effect": { "kind": "energy", "value": 500, "unitKey": "unit.megawatt" } },
+    { "id": "wind_farm", "category": "energy", "cost": 1.8e9, "durationDays": 180, "maintenance": 6.0e7, "effect": { "kind": "energy", "value": 800, "unitKey": "unit.megawatt" } },
+    { "id": "gas_plant", "category": "energy", "cost": 2.5e9, "durationDays": 240, "maintenance": 1.5e8, "effect": { "kind": "energy", "value": 1400, "unitKey": "unit.megawatt" } },
+    { "id": "nuclear_plant", "category": "energy", "cost": 12.0e9, "durationDays": 1460, "maintenance": 4.0e8, "effect": { "kind": "energy", "value": 3200, "unitKey": "unit.megawatt" } },
+    { "id": "automotive_plant", "category": "industry", "cost": 3.0e9, "durationDays": 300, "maintenance": 1.2e8, "effect": { "kind": "industry", "value": 2.5, "unitKey": "unit.percent" } },
+    { "id": "semiconductor_fab", "category": "industry", "cost": 15.0e9, "durationDays": 720, "maintenance": 6.0e8, "effect": { "kind": "industry", "value": 6, "unitKey": "unit.percent" } },
+    { "id": "steel_mill", "category": "industry", "cost": 4.5e9, "durationDays": 400, "maintenance": 2.0e8, "effect": { "kind": "industry", "value": 3, "unitKey": "unit.percent" } },
+    { "id": "highway_network", "category": "infrastructure", "cost": 6.0e9, "durationDays": 540, "maintenance": 2.5e8, "effect": { "kind": "infrastructure", "value": 4, "unitKey": "unit.percent" } },
+    { "id": "high_speed_rail", "category": "infrastructure", "cost": 18.0e9, "durationDays": 1095, "maintenance": 7.0e8, "effect": { "kind": "infrastructure", "value": 7, "unitKey": "unit.percent" } },
+    { "id": "container_port", "category": "infrastructure", "cost": 5.0e9, "durationDays": 600, "maintenance": 2.0e8, "effect": { "kind": "infrastructure", "value": 5, "unitKey": "unit.percent" } },
+    { "id": "housing_district", "category": "housing", "cost": 2.0e9, "durationDays": 365, "maintenance": 5.0e7, "effect": { "kind": "housing", "value": 40000, "unitKey": "unit.homes" } },
+    { "id": "urban_renewal", "category": "housing", "cost": 4.0e9, "durationDays": 540, "maintenance": 1.0e8, "effect": { "kind": "housing", "value": 90000, "unitKey": "unit.homes" } },
+    { "id": "irrigation_network", "category": "agriculture", "cost": 1.5e9, "durationDays": 240, "maintenance": 5.0e7, "effect": { "kind": "food", "value": 6, "unitKey": "unit.percent" } },
+    { "id": "agri_tech_center", "category": "agriculture", "cost": 0.9e9, "durationDays": 200, "maintenance": 4.0e7, "effect": { "kind": "food", "value": 4, "unitKey": "unit.percent" } }
+  ]
+}

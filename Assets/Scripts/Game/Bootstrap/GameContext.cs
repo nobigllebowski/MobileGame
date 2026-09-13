@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
+using Nation.Core.Buildings;
+using Nation.Core.Countries;
 using Nation.Core.Localization;
+using Nation.Core.Map;
+using Nation.Core.Session;
 using Nation.Core.Signals;
 using Nation.Game.Config;
-using Nation.Game.Localization;
+using Nation.Game.Data;
 using Nation.Game.Scenes;
-using Nation.Game.Session;
+using Nation.Game.UI.Core;
 using UnityEngine;
 
 namespace Nation.Game.Bootstrap
@@ -20,10 +25,18 @@ namespace Nation.Game.Bootstrap
         public GameDataCatalog Catalog { get; }
         public SignalBus Signals { get; }
         public ILocalizationService Localization { get; }
+        public StringTableLocalizationService LocalizationTables { get; }
         public SceneNavigator Scenes { get; }
+        public ICountryDataProvider Countries { get; }
+        public IReadOnlyList<BuildingDefinition> Buildings { get; }
+        public IMapDataProvider MapData { get; }
+        public UIService UI { get; private set; }
 
         /// <summary>The running game, or null while in the menu with no game started.</summary>
         public GameSession Session { get; private set; }
+
+        /// <summary>Country chosen in the selection flow. Survives until a different one is chosen.</summary>
+        public string SelectedCountryId { get; private set; }
 
         public event Action<GameSession> SessionChanged;
 
@@ -31,8 +44,12 @@ namespace Nation.Game.Bootstrap
         {
             Catalog = catalog;
             Signals = new SignalBus();
-            Localization = BuildLocalization(catalog);
+            LocalizationTables = BuildLocalization(catalog);
+            Localization = LocalizationTables;
             Scenes = new SceneNavigator();
+            Countries = StaticDataLoader.LoadCountries(catalog.Countries);
+            Buildings = StaticDataLoader.LoadBuildings(catalog.Buildings);
+            MapData = StaticDataLoader.LoadMap(catalog.MapData);
         }
 
         internal static GameContext Create(GameDataCatalog catalog)
@@ -46,15 +63,26 @@ namespace Nation.Game.Bootstrap
             return Current;
         }
 
+        internal void AttachUI(UIService ui)
+        {
+            UI = ui;
+        }
+
         internal static void Clear()
         {
             Current = null;
         }
 
+        public void SelectCountry(string countryId)
+        {
+            SelectedCountryId = countryId;
+        }
+
         public GameSession StartNewGame(string playerCountryId)
         {
+            SelectedCountryId = playerCountryId;
             var seed = Environment.TickCount;
-            Session = GameSession.StartNew(playerCountryId, seed, Signals);
+            Session = GameSession.StartNew(playerCountryId, seed, Countries, Signals);
             Debug.Log("[Session] New game started as " + playerCountryId + " with seed " + seed + ".");
             SessionChanged?.Invoke(Session);
             return Session;
@@ -66,31 +94,19 @@ namespace Nation.Game.Bootstrap
             SessionChanged?.Invoke(null);
         }
 
-        private static ILocalizationService BuildLocalization(GameDataCatalog catalog)
+        private static StringTableLocalizationService BuildLocalization(GameDataCatalog catalog)
         {
             var service = new StringTableLocalizationService();
             service.MissingKey += key => Debug.LogWarning("[Localization] Missing key '" + key + "' in locale '" + service.CurrentLocale + "'.");
 
-            var tables = catalog.LocalizationTables;
-            if (tables == null || tables.Length == 0)
+            var first = StaticDataLoader.LoadLocalization(service, catalog.LocalizationTables);
+            if (first == null)
             {
-                Debug.LogError("[Localization] The Game Data Catalog has no localization tables assigned.");
-                return service;
+                Debug.LogError("[Localization] No localization table could be loaded from the Game Data Catalog.");
             }
-
-            string firstLocale = null;
-            foreach (var table in tables)
+            else
             {
-                var locale = LocalizationTableLoader.LoadInto(service, table);
-                if (firstLocale == null && locale != null)
-                {
-                    firstLocale = locale;
-                }
-            }
-
-            if (firstLocale != null)
-            {
-                service.SetLocale(firstLocale);
+                service.SetLocale(first);
             }
 
             return service;

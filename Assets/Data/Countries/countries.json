@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "source": "Hand-curated approximate starting values (2024-2025 public estimates, rounded). Not live data. Replace with a better dataset by editing this file only; gameplay reads the fields, never the source.",
+  "units": {
+    "population": "people",
+    "gdp": "US dollars per year",
+    "treasury": "US dollars, game starting reserve",
+    "areaKm2": "square kilometres",
+    "technology|stability|happiness|influence|military": "0-100 index",
+    "energy|resources": "abstract daily units; production/consumption ratio drives self-sufficiency",
+    "taxes": "percent",
+    "flag": "vector layers; fractions of flag width/height"
+  },
+  "countries": [
+    {
+      "id": "DEU", "iso2": "DE", "region": "europe", "government": "federal_parliamentary_republic", "playable": true,
+      "capital": { "lat": 52.52, "lon": 13.405 },
+      "population": 84500000, "gdp": 4.5e12, "treasury": 5.0e11, "areaKm2": 357600,
+      "technology": 88, "stability": 82, "happiness": 68, "influence": 74, "military": 55,
+      "energy": { "production": 90, "consumption": 108 },
+      "resources": {
+        "oil": { "production": 3, "consumption": 100 },
+        "gas": { "production": 5, "consumption": 95 },
+        "food": { "production": 90, "consumption": 100 },
+        "iron": { "production": 2, "consumption": 60 }
+      },
+      "taxes": { "income": 42, "business": 30, "import": 4 },
+      "strengths": ["trait.industrial_economy", "trait.high_technology", "trait.strategic_europe"],
+      "challenges": ["trait.energy_dependency", "trait.aging_population", "trait.industrial_costs"],
+      "flag": { "layers": [ { "kind": "hstripes", "colors": ["#000000", "#DD0000", "#FFCE00"] } ] }
+    },
+    {
+      "id": "USA", "iso2": "US", "region": "north_america", "government": "federal_presidential_republic", "playable": true,
+      "capital": { "lat": 38.9072, "lon": -77.0369 },
+      "population": 335000000, "gdp": 28.8e12, "treasury": 9.0e11, "areaKm2": 9834000,
+      "technology": 95, "stability": 74, "happiness": 66, "influence": 98, "military": 100,
+      "energy": { "production": 105, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 100, "consumption": 95 },
+        "gas": { "production": 110, "consumption": 100 },
+        "food": { "production": 130, "consumption": 100 },
+        "iron": { "production": 40, "consumption": 60 }
+      },
+      "taxes": { "income": 37, "business": 21, "import": 3 },
+      "strengths": ["trait.largest_economy", "trait.technology_leader", "trait.energy_independent"],
+      "challenges": ["trait.political_polarization", "trait.public_debt", "trait.infrastructure_aging"],
+      "flag": { "layers": [
+        { "kind": "hstripes", "colors": ["#B22234", "#FFFFFF"], "count": 13 },
+        { "kind": "canton", "color": "#3C3B6E", "width": 0.4, "height": 0.5385 }
+      ] }
+    },
+    {
+      "id": "CHN", "iso2": "CN", "region": "asia", "government": "socialist_republic", "playable": true,
+      "capital": { "lat": 39.9042, "lon": 116.4074 },
+      "population": 1410000000, "gdp": 18.5e12, "treasury": 1.2e12, "areaKm2": 9597000,
+      "technology": 82, "stability": 80, "happiness": 60, "influence": 90, "military": 88,
+      "energy": { "production": 98, "consumption": 105 },
+      "resources": {
+        "oil": { "production": 30, "consumption": 100 },
+        "gas": { "production": 40, "consumption": 100 },
+        "food": { "production": 95, "consumption": 100 },
+        "iron": { "production": 70, "consumption": 100 }
+      },
+      "taxes": { "income": 30, "business": 25, "import": 6 },
+      "strengths": ["trait.manufacturing_power", "trait.large_workforce", "trait.infrastructure_scale"],
+      "challenges": ["trait.energy_dependency", "trait.aging_population", "trait.export_reliance"],
+      "flag": { "layers": [
+        { "kind": "fill", "color": "#DE2910" },
+        { "kind": "star", "color": "#FFDE00", "x": 0.17, "y": 0.25, "size": 0.19 },
+        { "kind": "star", "color": "#FFDE00", "x": 0.33, "y": 0.10, "size": 0.06 },
+        { "kind": "star", "color": "#FFDE00", "x": 0.40, "y": 0.20, "size": 0.06 },
+        { "kind": "star", "color": "#FFDE00", "x": 0.40, "y": 0.35, "size": 0.06 },
+        { "kind": "star", "color": "#FFDE00", "x": 0.33, "y": 0.45, "size": 0.06 }
+      ] }
+    },
+    {
+      "id": "RUS", "iso2": "RU", "region": "europe", "government": "semi_presidential_republic", "playable": true,
+      "capital": { "lat": 55.7558, "lon": 37.6173 },
+      "population": 144000000, "gdp": 2.1e12, "treasury": 2.5e11, "areaKm2": 17098000,
+      "technology": 68, "stability": 62, "happiness": 52, "influence": 72, "military": 85,
+      "energy": { "production": 130, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 150, "consumption": 100 },
+        "gas": { "production": 160, "consumption": 100 },
+        "food": { "production": 110, "consumption": 100 },
+        "iron": { "production": 90, "consumption": 60 }
+      },
+      "taxes": { "income": 13, "business": 20, "import": 8 },
+      "strengths": ["trait.energy_exporter", "trait.vast_resources", "trait.strategic_depth"],
+      "challenges": ["trait.economic_isolation", "trait.demographic_decline", "trait.commodity_dependence"],
+      "flag": { "layers": [ { "kind": "hstripes", "colors": ["#FFFFFF", "#0039A6", "#D52B1E"] } ] }
+    },
+    {
+      "id": "FRA", "iso2": "FR", "region": "europe", "government": "semi_presidential_republic", "playable": true,
+      "capital": { "lat": 48.8566, "lon": 2.3522 },
+      "population": 68000000, "gdp": 3.1e12, "treasury": 3.5e11, "areaKm2": 643800,
+      "technology": 86, "stability": 70, "happiness": 66, "influence": 80, "military": 70,
+      "energy": { "production": 108, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 2, "consumption": 100 },
+        "gas": { "production": 3, "consumption": 100 },
+        "food": { "production": 115, "consumption": 100 },
+        "iron": { "production": 5, "consumption": 50 }
+      },
+      "taxes": { "income": 45, "business": 25, "import": 4 },
+      "strengths": ["trait.nuclear_energy", "trait.agricultural_exporter", "trait.diplomatic_reach"],
+      "challenges": ["trait.public_debt", "trait.social_tension", "trait.industrial_costs"],
+      "flag": { "layers": [ { "kind": "vstripes", "colors": ["#0055A4", "#FFFFFF", "#EF4135"] } ] }
+    },
+    {
+      "id": "GBR", "iso2": "GB", "region": "europe", "government": "constitutional_monarchy", "playable": true,
+      "capital": { "lat": 51.5074, "lon": -0.1278 },
+      "population": 68000000, "gdp": 3.4e12, "treasury": 3.8e11, "areaKm2": 243600,
+      "technology": 87, "stability": 72, "happiness": 65, "influence": 82, "military": 68,
+      "energy": { "production": 92, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 55, "consumption": 100 },
+        "gas": { "production": 45, "consumption": 100 },
+        "food": { "production": 60, "consumption": 100 },
+        "iron": { "production": 3, "consumption": 45 }
+      },
+      "taxes": { "income": 40, "business": 25, "import": 4 },
+      "strengths": ["trait.financial_center", "trait.research_excellence", "trait.diplomatic_reach"],
+      "challenges": ["trait.food_imports", "trait.productivity_gap", "trait.public_debt"],
+      "flag": { "layers": [
+        { "kind": "fill", "color": "#012169" },
+        { "kind": "saltire", "color": "#FFFFFF", "thickness": 0.2 },
+        { "kind": "saltire", "color": "#C8102E", "thickness": 0.07 },
+        { "kind": "cross", "color": "#FFFFFF", "thickness": 0.33 },
+        { "kind": "cross", "color": "#C8102E", "thickness": 0.2 }
+      ] }
+    },
+    {
+      "id": "JPN", "iso2": "JP", "region": "asia", "government": "constitutional_monarchy", "playable": true,
+      "capital": { "lat": 35.6762, "lon": 139.6503 },
+      "population": 124000000, "gdp": 4.1e12, "treasury": 4.5e11, "areaKm2": 377900,
+      "technology": 92, "stability": 88, "happiness": 64, "influence": 76, "military": 60,
+      "energy": { "production": 85, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 1, "consumption": 100 },
+        "gas": { "production": 2, "consumption": 100 },
+        "food": { "production": 40, "consumption": 100 },
+        "iron": { "production": 1, "consumption": 70 }
+      },
+      "taxes": { "income": 45, "business": 30, "import": 4 },
+      "strengths": ["trait.advanced_technology", "trait.high_stability", "trait.industrial_quality"],
+      "challenges": ["trait.energy_dependency", "trait.aging_population", "trait.food_imports"],
+      "flag": { "layers": [
+        { "kind": "fill", "color": "#FFFFFF" },
+        { "kind": "disc", "color": "#BC002D", "x": 0.5, "y": 0.5, "size": 0.3 }
+      ] }
+    },
+    {
+      "id": "IND", "iso2": "IN", "region": "asia", "government": "federal_parliamentary_republic", "playable": true,
+      "capital": { "lat": 28.6139, "lon": 77.209 },
+      "population": 1430000000, "gdp": 3.9e12, "treasury": 3.0e11, "areaKm2": 3287000,
+      "technology": 62, "stability": 66, "happiness": 58, "influence": 70, "military": 78,
+      "energy": { "production": 90, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 15, "consumption": 100 },
+        "gas": { "production": 30, "consumption": 100 },
+        "food": { "production": 105, "consumption": 100 },
+        "iron": { "production": 95, "consumption": 80 }
+      },
+      "taxes": { "income": 30, "business": 25, "import": 10 },
+      "strengths": ["trait.young_population", "trait.fast_growth", "trait.technology_services"],
+      "challenges": ["trait.energy_dependency", "trait.infrastructure_gap", "trait.income_inequality"],
+      "flag": { "layers": [
+        { "kind": "hstripes", "colors": ["#FF9933", "#FFFFFF", "#138808"] },
+        { "kind": "ring", "color": "#000080", "x": 0.5, "y": 0.5, "size": 0.14, "thickness": 0.025 }
+      ] }
+    },
+    {
+      "id": "BRA", "iso2": "BR", "region": "south_america", "government": "federal_presidential_republic", "playable": true,
+      "capital": { "lat": -15.7975, "lon": -47.8919 },
+      "population": 216000000, "gdp": 2.2e12, "treasury": 2.0e11, "areaKm2": 8516000,
+      "technology": 60, "stability": 60, "happiness": 62, "influence": 58, "military": 50,
+      "energy": { "production": 110, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 105, "consumption": 100 },
+        "gas": { "production": 60, "consumption": 100 },
+        "food": { "production": 160, "consumption": 100 },
+        "iron": { "production": 150, "consumption": 60 }
+      },
+      "taxes": { "income": 27, "business": 34, "import": 12 },
+      "strengths": ["trait.agricultural_exporter", "trait.renewable_energy", "trait.vast_resources"],
+      "challenges": ["trait.political_polarization", "trait.infrastructure_gap", "trait.income_inequality"],
+      "flag": { "layers": [
+        { "kind": "fill", "color": "#009C3B" },
+        { "kind": "diamond", "color": "#FFDF00", "width": 0.86, "height": 0.72 },
+        { "kind": "disc", "color": "#002776", "x": 0.5, "y": 0.5, "size": 0.26 }
+      ] }
+    },
+    {
+      "id": "TUR", "iso2": "TR", "region": "middle_east", "government": "presidential_republic", "playable": true,
+      "capital": { "lat": 39.9334, "lon": 32.8597 },
+      "population": 85000000, "gdp": 1.1e12, "treasury": 1.2e11, "areaKm2": 783600,
+      "technology": 62, "stability": 55, "happiness": 55, "influence": 60, "military": 66,
+      "energy": { "production": 80, "consumption": 100 },
+      "resources": {
+        "oil": { "production": 8, "consumption": 100 },
+        "gas": { "production": 3, "consumption": 100 },
+        "food": { "production": 105, "consumption": 100 },
+        "iron": { "production": 30, "consumption": 60 }
+      },
+      "taxes": { "income": 35, "business": 25, "import": 8 },
+      "strengths": ["trait.strategic_crossroads", "trait.young_population", "trait.manufacturing_base"],
+      "challenges": ["trait.inflation_pressure", "trait.energy_dependency", "trait.currency_volatility"],
+      "flag": { "layers": [
+        { "kind": "fill", "color": "#E30A17" },
+        { "kind": "disc", "color": "#FFFFFF", "x": 0.36, "y": 0.5, "size": 0.25 },
+        { "kind": "disc", "color": "#E30A17", "x": 0.41, "y": 0.5, "size": 0.2 },
+        { "kind": "star", "color": "#FFFFFF", "x": 0.58, "y": 0.5, "size": 0.12 }
+      ] }
+    }
+  ]
+}

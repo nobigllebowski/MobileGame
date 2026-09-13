@@ -594,3 +594,12 @@ Decisions taken while building Phase 1 that refine the plan above:
 - **Theme.** UI Toolkit's default runtime theme is imported through `Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss` and referenced by `Assets/UI/NationPanelSettings.asset` (390 by 844 reference, shrink-to-fit so the PC Game view works at any size).
 - **Menu backdrop.** A vector-drawn wireframe globe (`GlobeBackdropElement`, Painter2D) stands in for the textured Earth until Phase 4.
 - **Placeholders to delete in later phases.** `PlaceholderCountries.cs` (Phase 3), the static German flag stripes in `WorldPlaceholder.uxml` (Phase 3), and `WorldPlaceholderController` (Phase 5).
+
+## Phase 2 and 3 implementation notes
+
+- **UI is built in C#, styled by USS.** Screens and components compose reusable elements (`Typography`, `Buttons`, `StatCard`, `InfoCard`, `CountryCard`, `FilterChip`, `SearchField`, `FlagElement`, `IconElement`, `ChartElement`, `GaugeBar`, `Badge`, `EmptyState`, `LoadingIndicator`) and read tokens from `Assets/UI/Theme.uss`. No UXML is used; this keeps every layout testable by the compiler and avoids hand-authored asset references.
+- **One persistent UI document.** `UIService` owns the layers (screens, sheets, modals, loading, toasts) inside a `SafeAreaElement`. Scenes only host 3D content; switching scenes never rebuilds the UI.
+- **Navigation.** `ScreenStack` provides Push, Pop, Replace and ReplaceAll with 260 ms fade-and-slide transitions; `ModalLayer` and `SheetLayer` provide ShowModal/Dismiss and a draggable three-state bottom sheet with velocity snapping.
+- **Data.** `Nation.Core.Data.JsonParser` is a small strict JSON reader so country, building, map and localization files load identically in Unity, in tests and on a future server. Vector flags are described in the country data and drawn with Painter2D until textures arrive.
+- **Time.** `TickScheduler` converts elapsed real time at the chosen speed into whole days (0.5, 1, 3 or 10 per second); `GameRunner` is the only per-frame hook and feeds `GameSession.AdvanceRealTime`.
+- **Placeholders still to replace.** `EconomyOverview` and `PowerOverview` derive display figures from state until their simulation phases; `WorldMapView` draws coarse silhouettes and capital markers until the Natural Earth map; CONSTRUCT shows a toast until the construction phase.

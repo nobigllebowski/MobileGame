@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Nation.Core.Countries;
 using Nation.Core.Models;
 
 namespace Nation.Core.World
 {
-    /// <summary>Creates a fresh world at the game epoch from a set of starting country states.</summary>
+    /// <summary>Creates a fresh world at the game epoch.</summary>
     public static class WorldFactory
     {
         public static WorldState Create(int seed, string playerCountryId, IEnumerable<CountryState> countries)
@@ -36,6 +37,22 @@ namespace Nation.Core.World
             }
 
             return world;
+        }
+
+        public static WorldState CreateFromDefinitions(int seed, string playerCountryId, IEnumerable<CountryDefinition> definitions)
+        {
+            if (definitions == null)
+            {
+                throw new ArgumentNullException(nameof(definitions));
+            }
+
+            var states = new List<CountryState>();
+            foreach (var definition in definitions)
+            {
+                states.Add(CountryStateFactory.Create(definition));
+            }
+
+            return Create(seed, playerCountryId, states);
         }
     }
 }

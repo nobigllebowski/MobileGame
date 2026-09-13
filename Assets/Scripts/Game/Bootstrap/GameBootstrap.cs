@@ -1,11 +1,15 @@
 using Nation.Game.Config;
+using Nation.Game.Time;
+using Nation.Game.UI.Core;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Nation.Game.Bootstrap
 {
     /// <summary>
     /// Composition root. Runs before the first scene loads, whichever scene that is, so pressing Play in any
-    /// scene produces a fully initialised game. Creates a persistent host object that owns the context.
+    /// scene produces a fully initialised game. Creates one persistent host object that owns the context,
+    /// the simulation runner and the UI document that every screen renders into.
     /// </summary>
     [DisallowMultipleComponent]
     public sealed class GameBootstrap : MonoBehaviour
@@ -45,7 +49,15 @@ namespace Nation.Game.Bootstrap
         {
             Application.targetFrameRate = TargetFrameRate;
             Context = GameContext.Create(catalog);
-            Debug.Log("[Bootstrap] Game context ready. Locale: " + Context.Localization.CurrentLocale + ".");
+
+            var document = gameObject.AddComponent<UIDocument>();
+            document.panelSettings = catalog.PanelSettings != null ? catalog.PanelSettings : UIService.CreateFallbackPanelSettings();
+            var ui = new UIService(document, catalog, Context.Localization);
+            Context.AttachUI(ui);
+
+            gameObject.AddComponent<GameRunner>();
+
+            Debug.Log("[Bootstrap] Game context ready. Locale: " + Context.Localization.CurrentLocale + ", countries: " + Context.Countries.All.Count + ".");
         }
 
         private void OnDestroy()

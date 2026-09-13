@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,10 @@ namespace Nation.Game.Scenes
         public const string World = "World";
     }
 
-    /// <summary>Single-scene navigation. Transitions and loading screens arrive with the UI foundation phase.</summary>
+    /// <summary>
+    /// Single-scene navigation. Scenes hold 3D content (the future map); screens live in the persistent UI
+    /// document, so a scene change does not tear the UI down.
+    /// </summary>
     public sealed class SceneNavigator
     {
         private AsyncOperation _pending;
@@ -19,6 +23,8 @@ namespace Nation.Game.Scenes
         public bool IsLoading => _pending != null && !_pending.isDone;
 
         public string ActiveSceneName => SceneManager.GetActiveScene().name;
+
+        public event Action<string> LoadStarted;
 
         public void GoTo(string sceneName)
         {
@@ -32,7 +38,10 @@ namespace Nation.Game.Scenes
             if (_pending == null)
             {
                 Debug.LogError("[Scenes] Scene '" + sceneName + "' could not be loaded. Is it added to File > Build Profiles / Build Settings?");
+                return;
             }
+
+            LoadStarted?.Invoke(sceneName);
         }
     }
 }
